@@ -2,9 +2,11 @@ require('dotenv').config();
 const express = require('express');
 const { ok, fail } = require('./src/utils/apiResponse');
 const authService = require('./src/modules/auth/auth.service');
-
 const app = express();
+const cors = require('cors');
+
 app.use(express.json());
+app.use(cors());
 
 app.get('/ping', (req, res) => res.send('pong'));
 
